@@ -20,5 +20,10 @@ namespace Cars
                 $"Mark: {mark}; Model: {model}; Production Year: {productionYear}; Color: {color}; Km traveled: {kmTraveled}"
                 );
         }
+
+        public Car(int kmTraveled)
+        {
+            kmTraveled = 100;
+        }
     }
 }
