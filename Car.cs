@@ -8,10 +8,17 @@ namespace Cars
 {
     class Car
     {
-        public string mark;
+        public  string mark;
         public string model;
         public DateTime productionYear;
         public string color;
         public int kmTraveled;
+
+        public void GetInfo()
+        {
+            Console.WriteLine(
+                $"Mark: {mark}; Model: {model}; Production Year: {productionYear}; Color: {color}; Km traveled: {kmTraveled}"
+                );
+        }
     }
 }
