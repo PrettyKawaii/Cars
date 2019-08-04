@@ -8,10 +8,10 @@ namespace Cars
 {
     class Car
     {
-        string mark;
-        string model;
-        DateTime productionYear;
-        string color;
-        int kmTraveled;
+        public string mark;
+        public string model;
+        public DateTime productionYear;
+        public string color;
+        public int kmTraveled;
     }
 }
