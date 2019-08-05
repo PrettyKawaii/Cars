@@ -11,7 +11,7 @@ namespace Cars
         static List<Car> cars = new List<Car>();
         static void Main(string[] args)
         {
-            Inializer();
+            //Inializer();
             for(int a = 0; ;)
             {
                 carsGUI();
