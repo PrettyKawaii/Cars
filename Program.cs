@@ -51,6 +51,23 @@ namespace Cars
             }
         }
 
+        public static void deleteCar()
+        {
+            Car car = selectCar();
+            cars.Remove(car);
+            Console.WriteLine("Car successfully deleted!");
+            
+        }
+
+        public static Car selectCar()
+        {
+            Console.Write(" Select car id for deletion: ");
+            outputCars();
+            int selection = Int32.Parse(Console.ReadLine());
+            Car car = cars.Single(x => x.id == selection);
+            return car;
+        }
+
 
 
 
