@@ -22,8 +22,11 @@ namespace Cars
                 $"{productionYear}; Color: {color}; Km traveled: {kmTraveled}"
                 );
         }
+        public Car()
+        {
 
-        public Car(int kmTraveled)
+        }
+        public Car(int kmTraveled) 
         {
             kmTraveled = 100;
         }
