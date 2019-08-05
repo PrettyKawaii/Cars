@@ -8,7 +8,8 @@ namespace Cars
 {
     class Car
     {
-        public  string mark;
+        public int id;
+        public string mark;
         public string model;
         public DateTime productionYear;
         public string color;
@@ -17,7 +18,8 @@ namespace Cars
         public void GetInfo()
         {
             Console.WriteLine(
-                $"Mark: {mark}; Model: {model}; Production Year: {productionYear}; Color: {color}; Km traveled: {kmTraveled}"
+                $"Mark: {mark}; Model: {model}; Production Year: " +
+                $"{productionYear}; Color: {color}; Km traveled: {kmTraveled}"
                 );
         }
 
