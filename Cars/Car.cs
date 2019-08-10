@@ -18,7 +18,7 @@ namespace Cars
         public void GetInfo()
         {
             Console.WriteLine(
-                $" Mark: {mark}; Model: {model}; Production Year: " +
+                $" Id: {id}; Mark: {mark}; Model: {model}; Production Year: " +
                 $"{productionYear}; Color: {color}; Km traveled: {kmTraveled}"
                 );
         }

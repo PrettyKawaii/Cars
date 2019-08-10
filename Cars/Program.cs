@@ -21,7 +21,7 @@ namespace Cars
         public static void carsGUI()
         {
             Console.WriteLine(" Welcome to Cars. Select number for continuation.");
-            Console.WriteLine(" 1 - output all cars; 2 - add car; 3 - delete car; 4 - exit;");
+            Console.WriteLine(" 1 - output all cars; 2 - add car; 3 - delete car; 4 - travel; 5 - exit;");
             string selection = Console.ReadLine();
             switch (selection)
             {
@@ -35,6 +35,9 @@ namespace Cars
                     deleteCar();
                     break;
                 case "4":
+                    travel();
+                    break;
+                case "5":
                     Environment.Exit(0);
                     break;
                 default:
@@ -68,7 +71,7 @@ namespace Cars
 
         public static void outputCars()
         {
-            Console.WriteLine(" Output cars");
+            //Console.WriteLine(" Output cars");
             foreach(Car item in cars)
             {
                 item.GetInfo();
@@ -105,7 +108,7 @@ namespace Cars
 
             Car car2 = new Car()
             {
-                id = cars.Count,
+                id = cars.Count+1,
                 mark = "Opel",
                 model = "Astra",
                 color = "black",
@@ -122,6 +125,14 @@ namespace Cars
             //cars.AddRange(cars);
         }
 
+        public static void travel()
+        {
+            Car car = selectCar();
+            Console.Write(" Enter, how much km you've want travel: ");
+            int travelKm = Int32.Parse(Console.ReadLine());
+            car.kmTraveled = travelKm;
+            Console.WriteLine(" Travel is successfully!");
+        }
 
 
 
