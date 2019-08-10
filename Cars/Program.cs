@@ -11,7 +11,7 @@ namespace Cars
         static List<Car> cars = new List<Car>();
         static void Main(string[] args)
         {
-            //Inializer();
+            Initializer();
             for(int a = 0; ;)
             {
                 carsGUI();
@@ -49,21 +49,26 @@ namespace Cars
             string mark = Console.ReadLine();
             Console.Write(" Enter car model: ");
             string model = Console.ReadLine();
-            //Console.WriteLine("Enter year of production:");
-            //DateTime productionYear = Console.ReadLine();
+            Console.Write(" Enter year of production: ");
+            int productionYear = Int32.Parse(Console.ReadLine());
             Console.Write(" Enter car color: ");
             string color = Console.ReadLine();
-            Console.WriteLine(" Enter, how much km car traveled: ");
+            Console.Write(" Enter, how much km car traveled: ");
             int kmTraveled = Int32.Parse(Console.ReadLine());
-
-            Car car = new Car(kmTraveled);
+            Car car = new Car();
+            car.mark = mark;
+            car.model = model;
+            car.productionYear = productionYear;
+            car.color = color;
+            car.kmTraveled = kmTraveled;
+            car.id = cars.Count;
             cars.Add(car);
-            Console.WriteLine(" Car successfully added!");
+            Console.WriteLine(" Car successfully added!");  
         }
 
         public static void outputCars()
         {
-            Console.WriteLine("Output cars");
+            Console.WriteLine(" Output cars");
             foreach(Car item in cars)
             {
                 item.GetInfo();
@@ -97,6 +102,7 @@ namespace Cars
                 color = "gray",
                 kmTraveled = 0
             };
+
             Car car2 = new Car()
             {
                 id = cars.Count,
@@ -105,6 +111,15 @@ namespace Cars
                 color = "black",
                 kmTraveled = 680
             };
+            cars.Add(car1);
+            cars.Add(car2);
+
+            //cars.AddRange(new[] {
+            //    car1,
+            //    car2
+            //});
+
+            //cars.AddRange(cars);
         }
 
 
