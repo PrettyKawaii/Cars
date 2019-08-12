@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Cars
 {
-    class Bus
+    class Bus:Car
     {
+        public bool doorStatus;
+        public int seatingNum;
     }
 }
