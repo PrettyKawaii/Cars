@@ -34,13 +34,13 @@ namespace Cars
                     doorTurn();
                     break;
                 case "3":
-                    addCar();
+                    addBus();
                     break;
                 case "4":
-                    deleteCar();
+                    deleteBus();
                     break;
                 case "5":
-                    travel();
+                    travelBus();
                     break;
                 case "exit":
                     Environment.Exit(0);
@@ -84,6 +84,49 @@ namespace Cars
             }
         }
 
+        public static void addBus()
+        {
+            Console.Write(" Enter bus mark: ");
+            string mark = Console.ReadLine();
+            Console.Write(" Enter bus type: ");
+            string type = Console.ReadLine();
+            Console.Write(" Enter bus model: ");
+            string model = Console.ReadLine();
+            Console.Write(" Enter bus year of production: ");
+            int productionYear = Int32.Parse(Console.ReadLine());
+            Console.Write(" Enter bus color: ");
+            string color = Console.ReadLine();
+            Console.Write(" Enter, how much km bus traveled: ");
+            int kmTraveled = Int32.Parse(Console.ReadLine());
+            Console.Write(" Enter, how much seating have bus: ");
+            int seatingNum = Int32.Parse(Console.ReadLine());
+            Bus bus = new Bus();
+            bus.mark = mark;
+            bus.type = type;
+            bus.model = model;
+            bus.productionYear = productionYear;
+            bus.color = color;
+            bus.kmTraveled = kmTraveled;
+            bus.seatingNum = seatingNum;
+            bus.id = buses.Count;
+            buses.Add(bus);
+            Console.WriteLine(" Bus successfully added!");
+        }
+
+        public static void deleteBus()
+        {
+            Bus bus = selectBus();
+            buses.Remove(bus);
+            Console.WriteLine(" Bus successfuly deleted!");
+        }
+        
+        public static void travelBus()
+        {
+            Bus bus = selectBus();
+            bus.kmTraveled = bus.kmTraveled + manageKm();
+            Console.WriteLine(" Travel is successfully!");
+        }
+
         public static void carsType()
         {
             Console.WriteLine("Welcome, select, with what you've want work:");
@@ -121,7 +164,7 @@ namespace Cars
                     deleteCar();
                     break;
                 case "4":
-                    travel();
+                    travelCar();
                     break;
                 case "exit":
                     Environment.Exit(0);
@@ -139,6 +182,8 @@ namespace Cars
         {
             Console.Write(" Enter car mark: ");
             string mark = Console.ReadLine();
+            Console.Write(" Enter car type: ");
+            string type = Console.ReadLine();
             Console.Write(" Enter car model: ");
             string model = Console.ReadLine();
             Console.Write(" Enter year of production: ");
@@ -149,6 +194,7 @@ namespace Cars
             int kmTraveled = Int32.Parse(Console.ReadLine());
             Car car = new Car();
             car.mark = mark;
+            car.type = type;
             car.model = model;
             car.productionYear = productionYear;
             car.color = color;
@@ -189,7 +235,8 @@ namespace Cars
             int travelKm = Int32.Parse(Console.ReadLine());
             return travelKm;
         }
-        public static void travel()
+
+        public static void travelCar()
         {
             Car car = CarSystem.selectCar();
             car.kmTraveled = car.kmTraveled + manageKm();           
