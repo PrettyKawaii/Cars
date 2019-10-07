@@ -8,13 +8,14 @@ namespace Cars
 {
     class Bus:Car
     {
-        public Bus(int seatingNum)
-        {
-            seatingNum = 40;
-        }
-
         public Bus()
         {
+
+        }
+        public Bus(int seatingNum, string type)
+        {
+            seatingNum = 40;
+            type = "Bus";
         }
 
         public static bool doorStatus;
@@ -22,24 +23,11 @@ namespace Cars
 
         public void GetInfo()
         {
-            Console.WriteLine($" Id: {id}; Mark: {mark}; Model: {model};" +
+            Console.WriteLine($" Id: {id}; Type: {type}; Mark: {mark}; Model: {model}; " +
                 $"Door status: {doorStatus}; Production Year: " +
                 $"{productionYear}; Color: {color}; Km traveled: {kmTraveled}");
         }
-        public void doorTurn()
-        {
-            Console.WriteLine("1 - open door; 2 - close door");
-            int selection = Int32.Parse(Console.ReadLine());
-            switch(selection)
-            {
-                case 1:
-                    doorOn();
-                    break;
-                case 2:
-                    doorOff();
-                    break;
-            }
-        }
+     
         public static void doorOn()
         {
             doorStatus = true;

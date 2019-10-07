@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,15 +23,15 @@ namespace Cars
         public static void busesGUI()
         {
             Console.WriteLine("Welcome to the busesGUI, select number: ");
-            Console.WriteLine(" 1 - output all buses; 2 - manage doorStatus; 3 - add bus; 4 - delete bus; 5 - travel; 6 - exit; ");
+            Console.WriteLine(" 1 - output all buses; 2 - manage doorStatus; 3 - add bus; 4 - delete bus; 5 - travel; exit - exit; ");
             string selection = Console.ReadLine();
             switch (selection)
+            {
                 case "1":
-                    outputCars();
+                    outputBus();
                     break;
                 case "2":
-                    Bus bus = new Bus();
-                    bus.doorTurn();
+                    doorTurn();
                     break;
                 case "3":
                     addCar();
@@ -42,7 +42,7 @@ namespace Cars
                 case "5":
                     travel();
                     break;
-                case "6":
+                case "exit":
                     Environment.Exit(0);
                     break;
                 default:
@@ -59,10 +59,35 @@ namespace Cars
             }
         }
 
+        public static Bus selectBus()
+        {
+            Console.Write("Select bus id: ");
+            outputBus();
+            int selection = int.Parse(Console.ReadLine());
+            Bus bus = buses.Single(x => x.id == selection);
+            return bus;
+        }
+
+        public static void doorTurn()
+        {
+            Bus bus = selectBus();
+            Console.WriteLine("1 - open door; 2 - close door");
+            int selection = Int32.Parse(Console.ReadLine());
+            switch (selection)
+            {
+                case 1:
+                    Bus.doorOn();
+                    break;
+                case 2:
+                    Bus.doorOff();
+                    break;
+            }
+        }
+
         public static void carsType()
         {
             Console.WriteLine("Welcome, select, with what you've want work:");
-            Console.WriteLine("1 - Cars; 2 - Buses");
+            Console.WriteLine("1 - Cars; 2 - Buses; exit - exit");
             string selection = Console.ReadLine();
             switch (selection)
             {
@@ -72,6 +97,9 @@ namespace Cars
                 case "2":
                     busesGUI();
                     break;
+                case "exit":
+                    Environment.Exit(0);
+                    break;
             }
             
         }
@@ -79,7 +107,7 @@ namespace Cars
             public static void carsGUI()
         {
             Console.WriteLine(" Welcome to Cars. Select number for continuation.");
-            Console.WriteLine(" 1 - output all cars; 2 - add car; 3 - delete car; 4 - travel; 5 - exit;");
+            Console.WriteLine(" 1 - output all cars; 2 - add car; 3 - delete car; 4 - travel; exit - exit;");
             string selection = Console.ReadLine();
             switch (selection)
             {
@@ -95,7 +123,7 @@ namespace Cars
                 case "4":
                     travel();
                     break;
-                case "5":
+                case "exit":
                     Environment.Exit(0);
                     break;
                 default:
@@ -170,13 +198,25 @@ namespace Cars
 
         public static void Initializer()
         {
+            Bus bus1 = new Bus()
+            {
+                id = buses.Count,
+                mark = "MA3",
+                model = "103",
+                color = "green",
+                kmTraveled = 1450,
+                seatingNum = 24,
+                productionYear = 1996,
+                type = "Bus"
+            };
             Car car1 = new Car()
             {
                 id = cars.Count,
                 mark = "Renaut",
                 model = "DUSTER",
                 color = "gray",
-                kmTraveled = 0
+                kmTraveled = 0,
+                type = "Car"
             };
 
             Car car2 = new Car()
@@ -185,10 +225,12 @@ namespace Cars
                 mark = "Opel",
                 model = "Astra",
                 color = "black",
-                kmTraveled = 680
+                kmTraveled = 680,
+                type = "Car"
             };
             cars.Add(car1);
             cars.Add(car2);
+            buses.Add(bus1);
 
             //cars.AddRange(new[] {
             //    car1,
