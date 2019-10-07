@@ -73,6 +73,7 @@ namespace Cars
                     busesGUI();
                     break;
             }
+            
         }
 
             public static void carsGUI()
@@ -154,6 +155,19 @@ namespace Cars
             return car;
         }
 
+        public static int manageKm()
+        {
+            Console.Write(" Enter, how much km you've want travel: ");
+            int travelKm = Int32.Parse(Console.ReadLine());
+            return travelKm;
+        }
+        public static void travel()
+        {
+            Car car = CarSystem.selectCar();
+            car.kmTraveled = car.kmTraveled + manageKm();           
+            Console.WriteLine(" Travel is successfully!");
+        }
+
         public static void Initializer()
         {
             Car car1 = new Car()
@@ -184,14 +198,7 @@ namespace Cars
             //cars.AddRange(cars);
         }
 
-        public static void travel()
-        {
-            Car car = selectCar();
-            Console.Write(" Enter, how much km you've want travel: ");
-            int travelKm = Int32.Parse(Console.ReadLine());
-            car.kmTraveled = travelKm;
-            Console.WriteLine(" Travel is successfully!");
-        }
+       
 
 
 
