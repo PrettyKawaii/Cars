@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,16 +9,73 @@ namespace Cars
     class CarSystem
     {
         static List<Car> cars = new List<Car>();
+        static List<Bus> buses = new List<Bus>();
         static void Main(string[] args)
         {
             Initializer();
-            for(int a = 0; ;)
+            for (int a = 0; ;)
             {
-                carsGUI();
+                carsType();
+            }
+
+        }
+
+        public static void busesGUI()
+        {
+            Console.WriteLine("Welcome to the busesGUI, select number: ");
+            Console.WriteLine(" 1 - output all buses; 2 - manage doorStatus; 3 - add bus; 4 - delete bus; 5 - travel; 6 - exit; ");
+            string selection = Console.ReadLine();
+            switch (selection)
+                case "1":
+                    outputCars();
+                    break;
+                case "2":
+                    Bus bus = new Bus();
+                    bus.doorTurn();
+                    break;
+                case "3":
+                    addCar();
+                    break;
+                case "4":
+                    deleteCar();
+                    break;
+                case "5":
+                    travel();
+                    break;
+                case "6":
+                    Environment.Exit(0);
+                    break;
+                default:
+                    Console.WriteLine(" Unknowh choice.");
+                    break;
             }
         }
 
-        public static void carsGUI()
+        public static void outputBus()
+        {
+            foreach(Bus item in buses)
+            {
+                item.GetInfo();
+            }
+        }
+
+        public static void carsType()
+        {
+            Console.WriteLine("Welcome, select, with what you've want work:");
+            Console.WriteLine("1 - Cars; 2 - Buses");
+            string selection = Console.ReadLine();
+            switch (selection)
+            {
+                case "1":
+                    carsGUI();
+                    break;
+                case "2":
+                    busesGUI();
+                    break;
+            }
+        }
+
+            public static void carsGUI()
         {
             Console.WriteLine(" Welcome to Cars. Select number for continuation.");
             Console.WriteLine(" 1 - output all cars; 2 - add car; 3 - delete car; 4 - travel; 5 - exit;");
@@ -45,6 +102,9 @@ namespace Cars
                     break;
             }
         }
+        
+        
+    
 
         public static void addCar()
         {
@@ -71,7 +131,6 @@ namespace Cars
 
         public static void outputCars()
         {
-            //Console.WriteLine(" Output cars");
             foreach(Car item in cars)
             {
                 item.GetInfo();

@@ -12,12 +12,23 @@ namespace Cars
         {
             seatingNum = 40;
         }
+
+        public Bus()
+        {
+        }
+
         public static bool doorStatus;
         public int seatingNum;
 
-        public static void doorTurn()
+        public void GetInfo()
         {
-            Console.Write("1 - open door; 2 - close door");
+            Console.WriteLine($" Id: {id}; Mark: {mark}; Model: {model};" +
+                $"Door status: {doorStatus}; Production Year: " +
+                $"{productionYear}; Color: {color}; Km traveled: {kmTraveled}");
+        }
+        public void doorTurn()
+        {
+            Console.WriteLine("1 - open door; 2 - close door");
             int selection = Int32.Parse(Console.ReadLine());
             switch(selection)
             {
