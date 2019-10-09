@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cars
 {
-    class Car
+    public class Car
     {
         public int id;
         public string mark;

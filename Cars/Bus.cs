@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace Cars
 {
-    class Bus:Car
+    public class Bus : Car
     {
         public Bus()
         {
-
         }
         public Bus(int seatingNum, string type)
         {
