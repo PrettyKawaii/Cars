@@ -8,27 +8,26 @@ namespace Cars
 {
     class Bus:Car
     {
-        public Bus(int seatingNum)
+        public Bus()
+        {
+
+        }
+        public Bus(int seatingNum, string type)
         {
             seatingNum = 40;
+            type = "Bus";
         }
+
         public static bool doorStatus;
         public int seatingNum;
 
-        public static void doorTurn()
+        public void GetInfo()
         {
-            Console.Write("1 - open door; 2 - close door");
-            int selection = Int32.Parse(Console.ReadLine());
-            switch(selection)
-            {
-                case 1:
-                    doorOn();
-                    break;
-                case 2:
-                    doorOff();
-                    break;
-            }
+            Console.WriteLine($" Id: {id}; Type: {type}; Mark: {mark}; Model: {model}; " +
+                $"Door status: {doorStatus}; Production Year: " +
+                $"{productionYear}; Color: {color}; Km traveled: {kmTraveled}");
         }
+     
         public static void doorOn()
         {
             doorStatus = true;

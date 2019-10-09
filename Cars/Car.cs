@@ -14,11 +14,12 @@ namespace Cars
         public int productionYear;
         public string color;
         public int kmTraveled;
+        public string type;
 
         public void GetInfo()
         {
             Console.WriteLine(
-                $" Id: {id}; Mark: {mark}; Model: {model}; Production Year: " +
+                $" Id: {id}; Type: {type}; Mark: {mark}; Model: {model}; Production Year: " +
                 $"{productionYear}; Color: {color}; Km traveled: {kmTraveled}"
                 );
         }
@@ -26,9 +27,10 @@ namespace Cars
         {
 
         }
-        public Car(int kmTraveled) 
+        public Car(int kmTraveled, string type) 
         {
             kmTraveled = 100;
+            type = "Car";
         }
     }
 }
